@@ -29,7 +29,7 @@ nnoremap <C-H> <C-W><C-H>
 map <C-n> :NERDTreeToggle<CR>
 
 " Specify context of 2 lines for ag.vim
-let g:agprg="ag -C 2 --column"
+let g:agprg="ag -C 1 --column"
 
 " Tabs
 " For mac users (using the 'apple' key)
