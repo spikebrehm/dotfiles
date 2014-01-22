@@ -31,6 +31,9 @@ map <C-n> :NERDTreeToggle<CR>
 " Specify context of 2 lines for ag.vim
 let g:agprg="ag -C 1 --column"
 
+" Custom ignore for Ctrl-p plugin
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
 " Tabs
 " For mac users (using the 'apple' key)
 map <D-S-]> gt
