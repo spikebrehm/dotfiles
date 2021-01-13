@@ -117,12 +117,12 @@ PATH=/usr/local/mysql/bin:\
 $PATH
 export PATH
 
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+#export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 export PATH=$JAVA_HOME/bin:$PATH
 
 alias g='git'
 alias gs='git status'
-alias gp='git pull --rebase'
+alias gp='git push'
 alias ga='git add'
 alias gd='git diff'
 alias gdc='git diff --cached'
@@ -135,6 +135,7 @@ alias gaddw='git diff -w --no-color | git apply --cached'
 alias ls='ls -lhG' # colors
 alias psg='ps aux | grep'
 alias prune-branches='git branch -r | awk '\''{print $1}'\'' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '\''{print $1}'\'' | xargs git branch -d'
+alias list-branches="git for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads"
 
 alias ep='vi ~/.zshrc'
 alias sp='source ~/.zshrc'
@@ -148,3 +149,11 @@ export GREP_OPTIONS='--color=auto'
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Watershed stuff
+eval "$(nodenv init -)"
+eval "$(pyenv init -)"
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+source ~/code/ghg/development.env
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
